@@ -1,7 +1,9 @@
 import floconLogo from './assets/flocon.png'
 import './App.css'
+import { socialNetwork, SocialNetwork } from './data/socialNetwork'
+import { md5 } from './utils/md5'
 
-function App() {
+function App(): JSX.Element {
   return (
     <div className="App">
       <div>
@@ -11,42 +13,17 @@ function App() {
       </div>
       <h1>Frigo Clim</h1>
       <div className="card">
-        <button>
-          <a
-            href={"https://youtube.com/channel/UCAl43r53qeaq0xGmVvQzDzQ"}
-            target="_blank"
-            rel="noreferrer"
-          >
-            Youtube
-          </a>
-        </button>
-        <button>
-          <a
-            href={"https://www.tiktok.com/@frigoclim?_t=8WYM0juAyph&_r=1"}
-            target="_blank"
-            rel="noreferrer"
-          >
-            Tiktok
-          </a>
-        </button>
-        <button>
-          <a
-            href={"https://www.facebook.com/profile.php?id=100079186693585"}
-            target="_blank"
-            rel="noreferrer"
-          >
-            Facebook
-          </a>
-        </button>
-        <button>
-          <a
-            href={"https://www.linkedin.com/in/mohamed-ahmya-a344b0158"}
-            target="_blank"
-            rel="noreferrer"
-          >
-            Linkedin
-          </a>
-        </button>
+        {socialNetwork && socialNetwork.map((social: SocialNetwork) => {
+          return <button key={md5(social?.name)}>
+            <a
+              href={social.url}
+              target="_blank"
+              rel="noreferrer"
+            >
+              {social?.name}
+            </a>
+          </button>
+        })}
         <p>
           Frigo Clim est une entreprise spécialisée dans la réfrigération et la climatisation.
         </p>
