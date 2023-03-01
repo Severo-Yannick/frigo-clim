@@ -43,3 +43,14 @@
 .card button {
   margin: 0.3em;
 }
+
+.translation {
+  display: flex;
+  justify-content: center;
+}
+
+.translation span {
+  font-size: 30px;
+  margin-right: 0.5em;
+  cursor: pointer;
+}

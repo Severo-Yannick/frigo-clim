@@ -1,9 +1,14 @@
+import { useState } from 'react'
 import floconLogo from './assets/flocon.png'
 import './App.css'
 import { socialNetwork, SocialNetwork } from './data/socialNetwork'
 import { md5 } from './utils/md5'
+import { locales } from './utils/locales'
+import { Translations } from './components/Translations'
 
 function App(): JSX.Element {
+  const [locale, setLocale] = useState("FR")
+
   return (
     <div className="App">
       <div>
@@ -24,19 +29,11 @@ function App(): JSX.Element {
             </a>
           </button>
         })}
-        <p>
-          Frigo Clim est une entreprise spécialisée dans la réfrigération et la climatisation.
-        </p>
-        <p>
-          Elle propose des solutions pour le froid industriel et la climatisation.
-        </p>
+        <Translations locale={locale} />
       </div>
-      <p className="read-the-docs">
-        Frigo Clim offre des services et des solutions dans le domaine de la réfrigération et de la climatisation pour les entreprises et les particuliers.
-      </p>
-      <p>
-        Elle vous propose également des formations et des conseils dans ces domaines.
-      </p>
+      <div className="translation">
+        {locales && locales.map(locale => <span key={md5(locale.name)} onClick={() => setLocale(locale.name)}>{locale.flag}</span>)}
+      </div>
       <br />
       <p>Crée avec &#x2764;&#xFE0F; by <a
         href={"https://www.faceaucode.com/"}
