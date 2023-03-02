@@ -1,4 +1,5 @@
-export function md5(message: string): string {
+export function md5(message: (string | number)): string {
+
   const rotateLeft = (x: number, n: number) => (x << n) | (x >>> (32 - n));
 
   const addUnsigned = (x: number, y: number) => {
