@@ -4,19 +4,24 @@ type Locale = {
   locale: string;
 }
 
+type TranslationsData = {
+  [key: string]: string;
+}
+
 export const Translations = ({ locale }: Locale): JSX.Element => {
+  const localeTranslations: TranslationsData = translations as any;
   return <>
     <p>
-      {translations[`${locale}_translation_1`]}
+      {localeTranslations[`${locale}_translation_1`]}
     </p>
     <p>
-      {translations[`${locale}_translation_2`]}
+      {localeTranslations[`${locale}_translation_2`]}
     </p>
     <p className="read-the-docs">
-      {translations[`${locale}_translation_3`]}
+      {localeTranslations[`${locale}_translation_3`]}
     </p>
     <p>
-      {translations[`${locale}_translation_4`]}
+      {localeTranslations[`${locale}_translation_4`]}
     </p>
   </>
 }
