@@ -3,7 +3,12 @@ export const FR: string = "FR",
   ES: string = "ES",
   SH: string = "SH";
 
-export const locales = [
+interface Locales {
+  name: string;
+  flag: string;
+}
+
+export const locales: Locales[] = [
   { name: FR, flag: "🇫🇷" },
   { name: EN, flag: "🇬🇧" },
   { name: ES, flag: "🇪🇸" },
