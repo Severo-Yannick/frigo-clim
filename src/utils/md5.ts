@@ -1,4 +1,7 @@
-export function md5(message: (string | number)): string {
+export function md5(message: string): string {
+  if (typeof message !== "string") {
+    throw new Error(`${message} is not a string`)
+  }
 
   const rotateLeft = (x: number, n: number) => (x << n) | (x >>> (32 - n));
 
